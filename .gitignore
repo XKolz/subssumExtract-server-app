@@ -1,0 +1,59 @@
+# Node modules
+node_modules/
+
+# Logs
+*.log
+logs/
+pids/
+*.pid
+*.seed
+*.pid.lock
+
+# Environment variables
+.env
+.env.local
+.env.*.local
+
+# Dependency directories
+jspm_packages/
+bower_components/
+
+# Build output
+dist/
+build/
+
+# Coverage
+coverage/
+
+# IDE/Editor files
+.idea/
+.vscode/
+*.sublime-workspace
+*.sublime-project
+
+# Operating System files
+.DS_Store
+Thumbs.db
+ehthumbs.db
+
+# npm packages
+npm-debug.log
+yarn-error.log
+package-lock.json
+
+# Miscellaneous
+*.swp
+*.swo
+
+# TypeScript
+*.tsbuildinfo
+
+# Docker
+.docker/
+
+# SSH keys
+*.pem
+
+# Yarn
+.yarn/
+.yarn-cache/
