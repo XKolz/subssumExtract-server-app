@@ -4,31 +4,11 @@ const jwt = require('jsonwebtoken');
 const User = require('../models/User');
 const getNextSequenceValue = require('../utils/sequenceGenerator');
 const Sequence = require('../models/Sequence'); // The Sequence model
-
-
-
-// const express = require('express');
 const router = express.Router();
-// const User = require('../models/User');
-// const bcrypt = require('bcryptjs');
 const authMiddleware = require('../middleware/authMiddleware');
-
-// Middleware to check authentication
-// router.use(authMiddleware);
-
-
-// const express = require('express');
-// const router = express.Router();
-// const User = require('../models/User');
 const crypto = require('crypto');
-// const bcrypt = require('bcryptjs');
 const nodemailer = require('nodemailer');
-
-// const express = require('express');
 const passport = require('passport');
-// const router = express.Router();
-
-// const router = express.Router();
 
 // Register Route
 router.post('/register', async (req, res) => {
@@ -74,44 +54,6 @@ router.post('/register', async (req, res) => {
   }
 });
 
-
-// Login Route
-// router.post('/login', async (req, res) => {
-//   const { email, password } = req.body;
-
-//   try {
-//     // Check if the user exists
-//     let user = await User.findOne({ email });
-//     if (!user) {
-//       return res.status(400).json({ msg: 'Invalid credentials' });
-//     }
-
-//     // Check password
-//     const isMatch = await bcrypt.compare(password, user.password);
-//     if (!isMatch) {
-//       return res.status(400).json({ msg: 'Invalid credentials' });
-//     }
-
-//     // Create and return JWT token
-//     const payload = { user: { id: user.id } };
-//     jwt.sign(payload, process.env.JWT_SECRET, { expiresIn: '1h' }, (err, token) => {
-//       if (err) throw err;
-//     //   res.json({ token });
-//     res.json({
-//         token,
-//         user: {
-//           id: user.id,
-//           username: user.username,
-//           email: user.email,
-//         }
-//       });
-//     });
-
-//   } catch (err) {
-//     console.error(err.message);
-//     res.status(500).send('Server error');
-//   }
-// });
 router.post('/login', async (req, res) => {
   const { email, password } = req.body;
 
@@ -150,12 +92,8 @@ router.get('/google',
 
 // Callback route for Google to redirect to
 router.get('/google/callback',
-  // passport.authenticate('google', { failureRedirect: '/' }),
   passport.authenticate('google', { session: false }),
   (req, res) => {
-    // // Successful authentication
-    // res.redirect('/dashboard');  // Redirect to the dashboard or wherever you want
-        // Send token to the frontend
         const token = generateToken(req.user); // Generate JWT token
         res.json({ token });
   }
@@ -197,10 +135,10 @@ router.post('/password-reset', authMiddleware, async (req, res) => {
 
     const mailOptions = {
       to: email,
-      from: 'passwordreset@yourapp.com',
+      from: 'passwordreset@subssumextractserverapp.com',
       subject: 'Password Reset',
       text: `You are receiving this email because you (or someone else) have requested to reset your password.\n\n
-      Please make a PUT request to the following link with your new password and the token:\n\n
+      Please make a request to the following link with your new password:\n\n
       http://${req.headers.host}/api/auth/reset-password/${resetToken}\n\n
       If you did not request this, please ignore this email.\n`
     };

@@ -1,3 +1,6 @@
+**LIVE URL**
+https://subssumextract-server-app.onrender.com/
+
 **POSTMAN DOCUMENTATION**
 https://documenter.getpostman.com/view/23652017/2sAXjKZBwv
 
