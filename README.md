@@ -55,8 +55,14 @@ This project is a web application with authentication, user management, and wall
 3. **Create a `.env` file in the root directory and add your environment variables:**
 
    ```env
-   MONGO_URI=your_mongodb_connection_string
-   JWT_SECRET=your_jwt_secret
+    PORT=
+    MONGO_URI=
+    JWT_SECRET=key_secret
+    SUPPRESS_NO_CONFIG_WARNING=true
+    GOOGLE_CLIENT_ID=
+    GOOGLE_CLIENT_SECRET=
+    EMAIL_USER=
+    EMAIL_PASS=
    ```
 
 4. **Start the server:**
